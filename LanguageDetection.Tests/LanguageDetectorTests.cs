@@ -13,15 +13,14 @@
 // limitations under the License.
 
 using System.Linq;
-
-using NUnit.Framework;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace LanguageDetection.Tests
 {
-    [TestFixture]
+    [TestClass]
     public class LanguageDetectorTests
     {
-        [Test]
+        [TestMethod]
         public void Latvian()
         {
             string[] texts = new[] {
@@ -32,7 +31,7 @@ namespace LanguageDetection.Tests
             Test("lv", texts, new[] { new[] { "en", "fr", }, new[] { "lt", "pt" } });
         }
 
-        [Test]
+        [TestMethod]
         public void French()
         {
             string[] texts = new[] {
@@ -45,7 +44,7 @@ namespace LanguageDetection.Tests
             Test("fr", texts, new[] { new[] { "en", "it", "es", "pt" } });
         }
 
-        [Test]
+        [TestMethod]
         public void Issue_1()
         {
             string[] texts = new[] { "Výsledky kvalifikace slopestylu na ZOH v Soči" };
@@ -55,7 +54,7 @@ namespace LanguageDetection.Tests
             Test("cs", texts, new[] { new[] { "en", "cs", "sk", "lv" } });
         }
 
-        [Test]
+        [TestMethod]
         public void Issue_2()
         {
             string text = "Výsledky kola švýcarské hokejové ligy";
